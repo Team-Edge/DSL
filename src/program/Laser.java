@@ -57,6 +57,8 @@ private boolean array[][];
 				return true;
 			}
 			
+			x += plusX;
+			
 			return false;
 		}
 		
@@ -78,6 +80,8 @@ private boolean array[][];
 				printArray();
 				return true;
 			}
+			
+			y += plusY;
 			
 			return false;
 		}
