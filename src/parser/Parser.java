@@ -26,14 +26,15 @@ public class Parser {
 		
 	}
 	
+
 	public void ParseCmdOrDef()
 	{
 		
 	}
 	
 	
-	
-	
+	//Kommentar
+
 	
 
 }
