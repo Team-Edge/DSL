@@ -46,7 +46,20 @@ public class Parser {
 	}
 	
 	private void parseStat(){
-		
+		if(mScanner.la()==DslScanner.Tokens.ID){
+			parseCommand();
+		}
+		else if(mScanner.la()==DslScanner.Tokens.DEF){
+			parseDef();
+		}
+	}
+	
+	private void parseCommand(){
+		expect(DslScanner.Tokens.ID);
+		mScanner.consume();
+		parseArgList();
+		expect(DslScanner.Tokens.SEMICOLON);
+		mScanner.consume();
 	}
 	
 	void expect(DslScanner.Tokens token){
