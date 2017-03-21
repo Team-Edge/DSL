@@ -40,7 +40,7 @@ public class Parser {
 			parseStat();
 		}
 		expect(DslScanner.Tokens.END);
-		mScanner.consume();
+		System.out.println("Hat geklappt");
 
 			
 	}

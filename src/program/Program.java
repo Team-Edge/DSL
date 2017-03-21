@@ -22,9 +22,14 @@ public class Program {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		DslScanner s = new DslScanner("C://Users//Z003hkey//Desktop//test.txt");
-		Parser p = new Parser(s);
-		p.ParseShape();
+		try{
+			DslScanner s = new DslScanner("C://Users//Z003hkey//Desktop//test.txt");
+			Parser p = new Parser(s);
+			p.ParseShape();
+		}
+		catch(Exception e){
+			System.out.println("Error");
+		}
 	}
 
 }

@@ -27,9 +27,9 @@ public class DslScanner {
 		END,
 		SHAPE,
 		SIZE,
-		GOTO,
+		/*GOTO,
 		MOVETO,
-		CUTTO,
+		CUTTO,*/
 		COMMA,
 		SEMICOLON,
 		BRACOPEN,
@@ -79,37 +79,45 @@ public class DslScanner {
 			switch(ch){
 				case('+'): 
 					token = Tokens.PLUS;
+					count++;
 					break;		
 				
 				case('-'): 
 					token = Tokens.MINUS;
+					count++;
 					break;
 					
 				case('/'): 
 					token = Tokens.DIV;
+					count++;
 					break;
 					
 				case('*'): 
 					token = Tokens.MULT;
+					count++;
 					break;
 					
 				case(','): 
 					token = Tokens.COMMA;
+					count++;
 					break;
 					
 				case(';'): 
 					token = Tokens.SEMICOLON;
+					count++;
 					break;
 					
 				case('('): 
 					token = Tokens.BRACOPEN;
+					count++;
 					break;
 					
 				case(')'): 
 					token = Tokens.BRACCLOSE;
+					count++;
 					break;
 				default:
-					System.exit(0);
+					System.exit(1);
 					break;
 			}
 		}
@@ -118,29 +126,25 @@ public class DslScanner {
 			
 			String word = "";
 			do{
-				word.concat(ch.toString());
+				word += ch;
 				count++;
-				ch = mSource.charAt(count);
+				if(count < mSource.length()) 
+					ch = mSource.charAt(count);
+				else break;
 			}while(Character.isAlphabetic(ch) || Character.isDigit(ch));
 			
 			switch(word){
-				case("DEF"):
+				case("def"):
 					token = Tokens.DEF;
 					break;
-				case("SHAPE"):
+				case("shape"):
 					token = Tokens.SHAPE;
 					break;
-				case("SIZE"):
+				case("size"):
 					token = Tokens.SIZE;
 					break;
-				case("GOTO"):
-					token = Tokens.GOTO;
-					break;
-				case("MOVETO"):
-					token = Tokens.MOVETO;
-					break;
-				case("CUTTO"):
-					token = Tokens.CUTTO;
+				case("end"):
+					token = Tokens.END;
 					break;
 				default:
 					token = Tokens.ID;
@@ -153,7 +157,7 @@ public class DslScanner {
 			
 			String number = "";
 			do{
-				number.concat(ch.toString());
+				number = number.concat(ch.toString());
 				count++;
 				ch = mSource.charAt(count);
 			}while(Character.isDigit(ch));
