@@ -52,6 +52,7 @@ public class Parser {
 		else if(mScanner.la()==DslScanner.Tokens.DEF){
 			parseDef();
 		}
+		else customQuit();
 	}
 	
 	private void parseCommand(){
@@ -96,16 +97,48 @@ public class Parser {
 		if(mScanner.la()==DslScanner.Tokens.ID||mScanner.la()==DslScanner.Tokens.NUM){
 			mScanner.consume();
 		}
+		else customQuit();
+	}
+	private void parseOP(){
+		if(mScanner.la()==DslScanner.Tokens.PLUS||mScanner.la()==DslScanner.Tokens.MINUS||mScanner.la()==DslScanner.Tokens.MULT||mScanner.la()==DslScanner.Tokens.DIV){
+			mScanner.consume();
+		}
+		else customQuit();
+		}
+	
+	private void parseOptParam(){
+		if(mScanner.la()!=DslScanner.Tokens.BRACOPEN){
+			return;
+		}
+		mScanner.consume();
+		parseParamList();
+		expect(DslScanner.Tokens.BRACCLOSE);
+		mScanner.consume();
 	}
 
+	private void parseParamList(){
+		if(mScanner.la()!=DslScanner.Tokens.ID){
+			return;
+		}
+		mScanner.consume();
+		while(mScanner.la()==DslScanner.Tokens.COMMA){
+			mScanner.consume();
+			expect(DslScanner.Tokens.ID);
+			mScanner.consume();
+		}
+	}
 	void expect(DslScanner.Tokens token){
 		if (mScanner.la()!=token){
-			System.out.println("Error");
-			System.exit(1);
+			customQuit();
 		}
 		
 		
 	}
+	private void customQuit(){
+		System.out.println("Error");
+		System.exit(1);
+	}
+	
 	
 
 
