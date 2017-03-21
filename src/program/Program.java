@@ -2,6 +2,8 @@
  * 
  */
 package program;
+import scanner.*;
+import parser.*;
 
 /**
  * @author Florian
@@ -20,8 +22,9 @@ public class Program {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		DslScanner s = new DslScanner("C://Users//Z003hkey//Desktop//test.txt");
+		Parser p = new Parser(s);
+		p.ParseShape();
 	}
 
 }
