@@ -27,9 +27,6 @@ public class DslScanner {
 		END,
 		SHAPE,
 		SIZE,
-		/*GOTO,
-		MOVETO,
-		CUTTO,*/
 		COMMA,
 		SEMICOLON,
 		BRACOPEN,
@@ -120,6 +117,7 @@ public class DslScanner {
 					System.exit(1);
 					break;
 			}
+			value = ch.toString();
 		}
 		
 		else if(Character.isAlphabetic(ch)){
@@ -148,9 +146,9 @@ public class DslScanner {
 					break;
 				default:
 					token = Tokens.ID;
-					value = word;
 					break;
 			}
+			value = word;
 		}
 		
 		else if(Character.isDigit(ch)){
