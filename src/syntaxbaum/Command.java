@@ -1,8 +1,8 @@
 package syntaxbaum;
 
-public class Command {
+public class Command extends Stat {
 
-	public Command() {
+	public Command(String cmdName, ArgList args) {
 		// TODO Auto-generated constructor stub
 	}
 

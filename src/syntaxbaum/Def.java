@@ -1,8 +1,10 @@
 package syntaxbaum;
 
-public class Def {
+import java.util.List;
 
-	public Def() {
+public class Def extends Stat{
+
+	public Def(String defName, OptParam parameters, List<Stat> statements) {
 		// TODO Auto-generated constructor stub
 	}
 

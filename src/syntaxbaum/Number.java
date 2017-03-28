@@ -1,8 +1,8 @@
 package syntaxbaum;
 
-public class OptParamList {
+public class Number extends Term{
 
-	public OptParamList() {
+	public Number(int num) {
 		// TODO Auto-generated constructor stub
 	}
 

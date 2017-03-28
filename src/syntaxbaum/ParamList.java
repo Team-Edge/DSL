@@ -2,9 +2,9 @@ package syntaxbaum;
 
 import java.util.List;
 
-public class Expr {
+public class ParamList {
 
-	public Expr(List<Unary> unaries, List<OP> operators) {
+	public ParamList(List<String> paramNames) {
 		// TODO Auto-generated constructor stub
 	}
 

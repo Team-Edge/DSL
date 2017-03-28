@@ -1,8 +1,8 @@
 package syntaxbaum;
 
-public class Unary {
+public class Variable extends Term{
 
-	public Unary(boolean negative, Term term) {
+	public Variable(String varName) {
 		// TODO Auto-generated constructor stub
 	}
 
